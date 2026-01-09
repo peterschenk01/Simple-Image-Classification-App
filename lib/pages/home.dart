@@ -25,7 +25,7 @@ class _HomePageState extends State<HomePage> {
 
       appBar: AppBar(
         title: const Text(
-          "CLIPascene",
+          "Image Classification",
           style: TextStyle(
             color: Colors.black,
             fontSize: 20,
@@ -106,7 +106,7 @@ class _HomePageState extends State<HomePage> {
   }
 
   // Function to pick an image from source (either gallery or camera), crop it and display it on a new page
-  pickandCropImage(ImageSource source) async {
+  Future<void> pickandCropImage(ImageSource source) async {
 
     // Choose image from gallery or camera
     final pickedFile = await ImagePicker().pickImage(source: source);
@@ -134,7 +134,7 @@ class _HomePageState extends State<HomePage> {
   }
 
   // Pop-up to choose between camera or gallery
-  showOptions(BuildContext context) {
+  void showOptions(BuildContext context) {
     showCupertinoModalPopup(
       context: context,
       builder: (childContext) => CupertinoActionSheet(
@@ -179,7 +179,7 @@ class _HomePageState extends State<HomePage> {
   }
 
   // Open new page where image is displayed
-  navigateToDisplayImagePage() {
+  void navigateToDisplayImagePage() {
     Navigator.push(
       context,
       MaterialPageRoute(
